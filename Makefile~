@@ -1,0 +1,5 @@
+mysh: myshv5.c
+	gcc myshv5.c -o mysh -Wall
+
+clean:
+	rm -rf *.o

@@ -1,0 +1,30 @@
+P2 README
+
+Author: Kristin Cox
+Date:	10/2/13
+
+Shell Project:
+
+I started out making a shell that only handled interactive commands, parsing the
+commands with whitespace delimiters.  I placed the tokens in an null-terminated 
+array called args and used this input to decide which prgorams to run.  I worked 
+on the built-in commands first.  If the first token in args matched a built-in 
+command, I would check that a viable number of arguments are present.  If not, 
+an error message is issued.   If yes, the program proceeds to execute the right commands.  Then I moved on to implementing all other commands (excluding 
+re-direction and background jobs).  First, the fork() command is called.  Then
+the value returned by fork() is checked to see if it is the parent or child 
+program.  It it is a child, it passes the args array to execvp().  After this
+if execvp() returns, an error message is printed.  If it is the parent, it waits
+for the child to return.  Next I worked on re-direction.  When parsing the program
+detects the presence of a '>' character and saves the next token as the output
+file name and sets the isArrow boolean to true.  Now, after calling fork() in the
+child process it checks this boolean.  If it is true, it closes stdout and tries
+to open the supplied outfile.  If unsuccessful, an error message is issued and
+it returns -- execvp() is not called.  Finally I worked on background jobs.  The
+program detects the presence of '&' in a similar way and sets a boolean isBackground.
+If this boolean is true, the parent does not wait for the child to return but 
+continues running until the wait comand is called.  This built-in command waits
+for all background jobs to finish until wait returns a pid of 0 (the parent). The
+rest of the time I spent fixing formatting issues and working on the fun python
+functionality. 
+I 

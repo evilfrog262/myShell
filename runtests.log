@@ -1,0 +1,594 @@
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+rm -rf *.o
+Trying to build project using make
+make
+gcc myshv6.c -o mysh -Wall
+myshv6.c: In function ‘parseCommand’:
+myshv6.c:109: warning: unused variable ‘isPython’
+
+
+test build PASSED
+ (build project using make)
+ file 'mysh' exists after make clean, removing
+
+
+**********************************************************************
+
+Test basic
+run a single command with no arguments
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/basic/in
+
+
+test basic PASSED
+ (run a single command with no arguments)
+
+
+**********************************************************************
+
+Test blank
+an empty batch file
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/blank/in
+
+
+test blank PASSED
+ (an empty batch file)
+
+
+**********************************************************************
+
+Test multiline
+two single line commands
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/multiline/in
+
+
+test multiline PASSED
+ (two single line commands)
+
+
+**********************************************************************
+
+Test parseargs
+a command with an argument
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/parseargs/in
+
+
+test parseargs PASSED
+ (a command with an argument)
+
+
+**********************************************************************
+
+Test parseargs2
+a command with many arguments
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/parseargs2/in
+
+
+test parseargs2 PASSED
+ (a command with many arguments)
+
+
+**********************************************************************
+
+Test parseargs3
+successfully parse indirection and background symbols
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/parseargs3/in
+Failure: ./mysh gave incorrect standard output.
+Expected: "rm -f 1.out\necho hello>1.out&\nwait\ncat 1.out\nhello\n"
+Got:      "rm -f 1.out\necho hello>1.out&\nhello>1.out&\nwait\ncat 1.out\n"
+
+
+test parseargs3 FAILED
+ (successfully parse indirection and background symbols)
+ ./mysh gave incorrect standard output.
+
+
+**********************************************************************
+
+Test exit
+the builtin exit command
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/exit/in
+
+
+test exit PASSED
+ (the builtin exit command)
+
+
+**********************************************************************
+
+Test pwd
+the builtin pwd command
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/pwd/in
+
+
+test pwd PASSED
+ (the builtin pwd command)
+
+
+**********************************************************************
+
+Test cd
+cd with argument
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/cd/in
+
+
+test cd PASSED
+ (cd with argument)
+
+
+**********************************************************************
+
+Test cd2
+cd without argument
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/cd2/in
+
+
+test cd2 PASSED
+ (cd without argument)
+
+
+**********************************************************************
+
+Test whitespace
+serveral commands with extra whitespace
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/whitespace/in
+
+
+test whitespace PASSED
+ (serveral commands with extra whitespace)
+
+
+**********************************************************************
+
+Test whitespace2
+builtin commands with extra whitespace
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/whitespace2/in
+
+
+test whitespace2 PASSED
+ (builtin commands with extra whitespace)
+
+
+**********************************************************************
+
+Test args
+too many arguments to mysh
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/args/in /bogus
+
+
+test args PASSED
+ (too many arguments to mysh)
+
+
+**********************************************************************
+
+Test args2
+invalid batch file path
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /bogus
+
+
+test args2 PASSED
+ (invalid batch file path)
+
+
+**********************************************************************
+
+Test longline
+maximum length line
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/longline/in
+
+
+test longline PASSED
+ (maximum length line)
+
+
+**********************************************************************
+
+Test toolong
+a line that is too long
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/toolong/in
+
+
+test toolong PASSED
+ (a line that is too long)
+
+
+**********************************************************************
+
+Test badprog
+bad executable path as command
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badprog/in
+
+
+test badprog PASSED
+ (bad executable path as command)
+
+
+**********************************************************************
+
+Test errout
+a called program produces error output, but no errors from the shell itself
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/errout/in
+
+
+test errout PASSED
+ (a called program produces error output, but no errors from the shell itself)
+
+
+**********************************************************************
+
+Test badcd
+invalid path to cd
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badcd/in
+
+
+test badcd PASSED
+ (invalid path to cd)
+
+
+**********************************************************************
+
+Test badpwd
+invalid arguments to pwd
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badpwd/in
+
+
+test badpwd PASSED
+ (invalid arguments to pwd)
+
+
+**********************************************************************
+
+Test badexit
+invalid arguments to exit
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badexit/in
+
+
+test badexit PASSED
+ (invalid arguments to exit)
+
+
+**********************************************************************
+
+Test redirect
+simple redirection using >
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/redirect/in
+
+
+test redirect PASSED
+ (simple redirection using >)
+
+
+**********************************************************************
+
+Test redirect2
+redirection and mutiple arguments
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/redirect2/in
+
+
+test redirect2 PASSED
+ (redirection and mutiple arguments)
+
+
+**********************************************************************
+
+Test badredir
+redirect to invalid path
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badredir/in
+
+
+test badredir PASSED
+ (redirect to invalid path)
+
+
+**********************************************************************
+
+Test badredir2
+redirect to multiple paths
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badredir2/in
+
+
+test badredir2 PASSED
+ (redirect to multiple paths)
+
+
+**********************************************************************
+
+Test interactive
+simple command in interactive mode
+
+**********************************************************************
+Running mysh with 1 command: see /u/c/s/cs537-2/ta/tests/2a/interactive/in
+
+/tmp/tmpZ5AmjI/p/./mysh
+
+
+test interactive FAILED
+ (simple command in interactive mode)
+ Timelimit (10.0s) exceeded
+
+
+**********************************************************************
+
+Test interactive2
+series of commands in interactive mode
+
+**********************************************************************
+Running mysh with several commands: see /u/c/s/cs537-2/ta/tests/2a/interactive2/in
+
+/tmp/tmpZ5AmjI/p/./mysh
+Failure: ./mysh gave incorrect standard output.
+Expected: "mysh> mysh> mysh> mysh> 14\nmysh> 18,21,24,27,30\nmysh> "
+Got:      "14\n18,21,24,27,30\nmysh>mysh>mysh>mysh>mysh>mysh>"
+
+
+test interactive2 FAILED
+ (series of commands in interactive mode)
+ ./mysh gave incorrect standard output.
+
+
+**********************************************************************
+
+Test background
+basic background process
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/background/in
+
+
+test background PASSED
+ (basic background process)
+
+
+**********************************************************************
+
+Test background2
+background process followed by wait
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/background2/in
+
+
+test background2 PASSED
+ (background process followed by wait)
+
+
+**********************************************************************
+
+Test background3
+command following wait
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/background3/in
+
+
+test background3 PASSED
+ (command following wait)
+
+
+**********************************************************************
+
+Test background4
+check that wait waits correctly
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/background4/in
+Failure: ./mysh gave incorrect standard output.
+Expected: "python ./decho.py 2 delayed &\npython ./decho.py 4 delayedmore &\n/bin/echo now\nnow\nwait\ndelayed\ndelayedmore\n/bin/echo later\nlater\n"
+Got:      "python ./decho.py 2 delayed &\npython ./decho.py 4 delayedmore &\n/bin/echo now\nnow\nwait\ndelayed\n/bin/echo later\nlater\ndelayedmore\n"
+
+
+test background4 FAILED
+ (check that wait waits correctly)
+ ./mysh gave incorrect standard output.
+
+
+**********************************************************************
+
+Test waitnone
+wait with no background jobs
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/waitnone/in
+
+
+test waitnone PASSED
+ (wait with no background jobs)
+
+
+**********************************************************************
+
+Test badwait
+invalid arguments to wait
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/badwait/in
+
+
+test badwait PASSED
+ (invalid arguments to wait)
+
+
+**********************************************************************
+
+Test fun
+test the fun feature (python script)
+
+**********************************************************************
+/tmp/tmpZ5AmjI/p/./mysh /u/c/s/cs537-2/ta/tests/2a/fun/in
+
+
+test fun PASSED
+ (test the fun feature (python script))
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build project using make)
+ file 'mysh' exists after make clean, removing
+
+test basic PASSED
+ (run a single command with no arguments)
+
+test blank PASSED
+ (an empty batch file)
+
+test multiline PASSED
+ (two single line commands)
+
+test parseargs PASSED
+ (a command with an argument)
+
+test parseargs2 PASSED
+ (a command with many arguments)
+
+test parseargs3 FAILED
+ (successfully parse indirection and background symbols)
+ ./mysh gave incorrect standard output.
+
+test exit PASSED
+ (the builtin exit command)
+
+test pwd PASSED
+ (the builtin pwd command)
+
+test cd PASSED
+ (cd with argument)
+
+test cd2 PASSED
+ (cd without argument)
+
+test whitespace PASSED
+ (serveral commands with extra whitespace)
+
+test whitespace2 PASSED
+ (builtin commands with extra whitespace)
+
+test args PASSED
+ (too many arguments to mysh)
+
+test args2 PASSED
+ (invalid batch file path)
+
+test longline PASSED
+ (maximum length line)
+
+test toolong PASSED
+ (a line that is too long)
+
+test badprog PASSED
+ (bad executable path as command)
+
+test errout PASSED
+ (a called program produces error output, but no errors from the shell itself)
+
+test badcd PASSED
+ (invalid path to cd)
+
+test badpwd PASSED
+ (invalid arguments to pwd)
+
+test badexit PASSED
+ (invalid arguments to exit)
+
+test redirect PASSED
+ (simple redirection using >)
+
+test redirect2 PASSED
+ (redirection and mutiple arguments)
+
+test badredir PASSED
+ (redirect to invalid path)
+
+test badredir2 PASSED
+ (redirect to multiple paths)
+
+test interactive FAILED
+ (simple command in interactive mode)
+ Timelimit (10.0s) exceeded
+
+test interactive2 FAILED
+ (series of commands in interactive mode)
+ ./mysh gave incorrect standard output.
+
+test background PASSED
+ (basic background process)
+
+test background2 PASSED
+ (background process followed by wait)
+
+test background3 PASSED
+ (command following wait)
+
+test background4 FAILED
+ (check that wait waits correctly)
+ ./mysh gave incorrect standard output.
+
+test waitnone PASSED
+ (wait with no background jobs)
+
+test badwait PASSED
+ (invalid arguments to wait)
+
+test fun PASSED
+ (test the fun feature (python script))
+
+Passed 31 of 35 tests.
+Overall 31 of 35
